@@ -17,15 +17,17 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
             background-color: var(--dark-bg);
             color: var(--text-light);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
+        /* Header Section */
         header {
             height: 100vh;
             display: flex;
@@ -33,9 +35,11 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(11, 14, 20, 0.8), rgba(11, 14, 20, 0.9)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1920');
+            background: linear-gradient(rgba(11, 14, 20, 0.85), rgba(11, 14, 20, 0.95)), 
+                        url('https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=2000');
             background-size: cover;
             background-position: center;
+            padding: 20px;
         }
 
         .profile-pic {
@@ -45,12 +49,15 @@
             border: 4px solid var(--primary-color);
             margin-bottom: 20px;
             object-fit: cover;
-            background: #222;
+            /* Placeholder styling if image fails */
+            background: #222 url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200') center/cover;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
 
         .hero-text h1 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 8vw, 3.5rem);
             margin-bottom: 10px;
+            letter-spacing: -1px;
         }
 
         .hero-text p {
@@ -58,9 +65,10 @@
             color: var(--primary-color);
             font-weight: bold;
             letter-spacing: 2px;
-            min-height: 1.5em;
+            height: 1.5em;
         }
 
+        /* Content Sections */
         section {
             padding: 80px 20px;
             max-width: 1100px;
@@ -69,37 +77,40 @@
 
         h2 {
             text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.2rem;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
             color: var(--primary-color);
         }
 
-        /* Info Section */
+        /* Info Grid */
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
 
         .info-item {
             background: var(--card-bg);
-            padding: 20px;
+            padding: 25px;
             border-radius: 12px;
-            border-bottom: 3px solid transparent;
-            transition: 0.3s;
+            border-left: 4px solid var(--primary-color);
+            transition: 0.3s ease;
         }
 
         .info-item:hover {
-            border-bottom: 3px solid var(--primary-color);
             transform: translateY(-5px);
+            background: #1c2128;
         }
 
         .info-item strong {
             color: var(--primary-color);
             display: block;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            font-size: 0.8rem;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            opacity: 0.8;
         }
 
         /* Projects Section */
@@ -113,19 +124,19 @@
             background: var(--card-bg);
             border-radius: 15px;
             overflow: hidden;
-            transition: transform 0.4s ease;
+            transition: 0.4s ease;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .project-card:hover {
-            transform: scale(1.03);
+            transform: translateY(-10px);
         }
 
         .project-img {
             width: 100%;
             height: 220px;
             object-fit: cover;
-            filter: brightness(0.8);
+            border-bottom: 2px solid #30363d;
         }
 
         .project-info {
@@ -133,23 +144,32 @@
         }
 
         .project-info h3 {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: var(--primary-color);
         }
 
-        /* Footer & Contact */
+        .project-info p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        /* Footer & Contact Form */
         footer {
             background: #06090f;
             padding: 80px 20px;
-            text-align: center;
+            border-top: 1px solid #30363d;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .contact-form {
-            max-width: 600px;
-            margin: 40px auto;
             display: flex;
             flex-direction: column;
             gap: 15px;
+            margin-top: 30px;
         }
 
         input, textarea {
@@ -159,10 +179,11 @@
             border: 1px solid #30363d;
             background: #0d1117;
             color: white;
-            outline: none;
+            font-size: 1rem;
         }
 
         input:focus, textarea:focus {
+            outline: none;
             border-color: var(--primary-color);
         }
 
@@ -180,13 +201,15 @@
 
         button:hover {
             background: #00b8e6;
-            box-shadow: 0 0 15px var(--primary-color);
+            filter: brightness(1.2);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
         }
 
-        .footer-bottom {
-            margin-top: 50px;
+        .footer-credits {
+            text-align: center;
+            margin-top: 60px;
             color: var(--text-dim);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
     </style>
 </head>
@@ -201,77 +224,82 @@
     </header>
 
     <section id="about">
-        <h2>About Me</h2>
+        <h2>Personal Profile</h2>
         <div class="info-grid">
+            <div class="info-item"><strong>Full Name</strong> John Michael H. Playda</div>
             <div class="info-item"><strong>Birthdate</strong> November 3, 2004</div>
             <div class="info-item"><strong>Age</strong> 21 Years Old</div>
-            <div class="info-item"><strong>Location</strong> Purok 2, San Vicente Liloan</div>
-            <div class="info-item"><strong>Email</strong> johnmichaelplayda@gmail.com</div>
-            <div class="info-item"><strong>Phone</strong> 09662005166</div>
-            <div class="info-item"><strong>Goal</strong> Cybersecurity Analyst</div>
+            <div class="info-item"><strong>Current Address</strong> Purok 2, San Vicente Liloan</div>
+            <div class="info-item"><strong>Contact Email</strong> johnmichaelplayda@gmail.com</div>
+            <div class="info-item"><strong>Mobile Number</strong> 09662005166</div>
+            <div class="info-item"><strong>Career Path</strong> Cybersecurity Analyst</div>
         </div>
     </section>
 
     <section id="projects">
-        <h2>My Projects</h2>
+        <h2>Cyber Projects</h2>
         <div class="projects-grid">
             <div class="project-card">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/16985606265585155824_0" alt="Network Security" class="project-img">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800" alt="Network Monitoring" class="project-img">
                 <div class="project-info">
-                    <h3>Network Defense Systems</h3>
-                    <p>Analysis of network traffic to detect and prevent unauthorized intrusion attempts.</p>
+                    <h3>Threat Detection System</h3>
+                    <p>Designed a prototype for monitoring network traffic and flagging suspicious IP activities in real-time.</p>
                 </div>
             </div>
             <div class="project-card">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/16985606265585155824_1" alt="Cybersecurity Lab" class="project-img">
+                <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=800" alt="Code Security" class="project-img">
                 <div class="project-info">
-                    <h3>Vulnerability Assessment</h3>
-                    <p>Performing penetration testing on web applications to identify security flaws.</p>
+                    <h3>Secure Auth Protocol</h3>
+                    <p>Implemented a multi-factor authentication system using Python to secure user login databases.</p>
                 </div>
             </div>
             <div class="project-card">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/16985606265585155824_2" alt="Data Protection" class="project-img">
+                <img src="https://images.unsplash.com/photo-1510511459019-5dee99cc4ff5?q=80&w=800" alt="Data Center" class="project-img">
                 <div class="project-info">
-                    <h3>Encryption Protocols</h3>
-                    <p>Developing secure end-to-end encryption models for protecting sensitive user data.</p>
+                    <h3>Vulnerability Scanning</h3>
+                    <p>Conducted automated scans on local servers to identify and patch outdated software dependencies.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <h2>Send a Message</h2>
-        <form class="contact-form" id="contactForm">
-            <input type="text" placeholder="Full Name" required>
-            <input type="email" placeholder="Email Address" required>
-            <textarea rows="5" placeholder="Your Message..." required></textarea>
-            <button type="submit">Submit Message</button>
-        </form>
-        <div class="footer-bottom">
-            &copy; 2025 John Michael H. Playda | Cybersecurity Portfolio
+        <div class="contact-container">
+            <h2>Send me a message</h2>
+            <form class="contact-form" id="contactForm">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <textarea rows="4" placeholder="How can I help you?" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        <div class="footer-credits">
+            &copy; 2026 John Michael H. Playda • Portfolio Website
         </div>
     </footer>
 
     <script>
-        // Typing effect for the header
-        const text = "Future Cybersecurity Analyst";
-        let index = 0;
-        function typeWriter() {
-            if (index < text.length) {
-                document.getElementById("typing-text").innerHTML += text.charAt(index);
-                index++;
-                setTimeout(typeWriter, 100);
+        // Typing animation
+        const phrase = "Cybersecurity Analyst";
+        let charIndex = 0;
+        const target = document.getElementById("typing-text");
+
+        function type() {
+            if (charIndex < phrase.length) {
+                target.textContent += phrase.charAt(charIndex);
+                charIndex++;
+                setTimeout(type, 100);
             }
         }
 
-        // Handle form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        // Simple form handling
+        document.getElementById('contactForm').onsubmit = (e) => {
             e.preventDefault();
-            alert("Message sent successfully! I will contact you soon.");
-            this.reset();
-        });
+            alert("Thanks for reaching out, John Michael will see your message!");
+            e.target.reset();
+        };
 
-        window.onload = typeWriter;
+        window.onload = type;
     </script>
 </body>
 </html>
