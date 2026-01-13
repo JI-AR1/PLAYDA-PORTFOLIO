@@ -1,1 +1,270 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Michael H. Playda | Portfolio</title>
+    <style>
+        /* CSS STYLES */
+        :root {
+            --primary-color: #007bff;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --text-light: #f4f4f4;
+            --text-dim: #b0b0b0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-color);
+            margin-bottom: 20px;
+            object-fit: cover;
+            background-color: #333;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            border-bottom: 2px solid var(--primary-color);
+            display: table;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 5px;
+        }
+
+        /* Info Section */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .info-item strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dim);
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        /* Footer & Contact */
+        footer {
+            background: #0a0a0a;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #333;
+            background: #1e1e1e;
+            color: white;
+        }
+
+        button {
+            padding: 12px 30px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://via.placeholder.com/180" alt="John Michael H. Playda" class="profile-pic" id="profileImg">
+        <div class="hero-text">
+            <h1>John Michael H. Playda</h1>
+            <p id="typing-text"></p>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2>Personal Information</h2>
+        <div class="info-grid">
+            <div class="info-item"><strong>Birthdate</strong> November 3, 2004</div>
+            <div class="info-item"><strong>Age</strong> 21 Years Old</div>
+            <div class="info-item"><strong>Location</strong> Purok 2, San Vicente Liloan</div>
+            <div class="info-item"><strong>Email</strong> johnmichaelplayda@gmail.com</div>
+            <div class="info-item"><strong>Phone</strong> 09662005166</div>
+            <div class="info-item"><strong>Career Goal</strong> Cybersecurity Analyst</div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-img">Project 1 Placeholder</div>
+                <div class="project-info">
+                    <h3>Network Security Audit</h3>
+                    <p>A comprehensive analysis of local network vulnerabilities and mitigation strategies.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">Project 2 Placeholder</div>
+                <div class="project-info">
+                    <h3>Encryption Tool</h3>
+                    <p>A Python-based application designed to encrypt and decrypt sensitive files using AES.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">Project 3 Placeholder</div>
+                <div class="project-info">
+                    <h3>Firewall Configuration</h3>
+                    <p>Implementation of advanced firewall rules for a simulated small business environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h2>Get In Touch</h2>
+        <form class="contact-form" id="contactForm">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div class="footer-bottom">
+            &copy; 2025 John Michael H. Playda | Cybersecurity Aspirant
+        </div>
+    </footer>
+
+    <script>
+        // JAVASCRIPT
+        
+        // 1. Simple Typing Effect for the Header
+        const text = "Future Cybersecurity Analyst";
+        let index = 0;
+        const speed = 100;
+
+        function typeWriter() {
+            if (index < text.length) {
+                document.getElementById("typing-text").innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        // 2. Handle Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert("Thank you, John Michael will get back to you soon!");
+            this.reset();
+        });
+
+        // Initialize script
+        window.onload = typeWriter;
+    </script>
+</body>
+</html>
